@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h1 class="mb-4">Etkinlikler</h1>
+    <div class="row">
+
+        <div class="col-md-8" *ngFor="let event of eventsToShow">
+            <div class="card mb-3 d-flex flex-row-reverse">
+                <div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{event.eventName}}</h5>
+                        <p class="card-text">Etkinlik açıklaması burada bulunacak. Bu etkinlik hakkında bazı bilgiler.
+                        </p>
+                        <a href="#" class="btn btn-primary">Detaylar</a>
+                    </div>
+                </div>
+                <div class="col-md-4 p-3">
+                    <img src="{{event.sports?.sportImage}}"
+                        class="card-img-top" style="height: 250px;" alt="Etkinlik 1">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Filtrele</h5>
+                    <form class="text-center">
+                        <div class="form-group">
+                            <label for="etkinlikTuru">Etkinlik Türü</label>
+                            <select class="form-control" id="etkinlikTuru" [(ngModel)]="selectedSport" [ngModelOptions]="{standalone:true}"
+                                >
+                                <option style="background-color: #fff;" class="text-secondary" value="Tümü">Tümü
+                                </option>
+                                <option style="background-color: #fff;" class="text-secondary" value="Futbol">Futbol
+                                </option>
+                                <option style="background-color: #fff;" class="text-secondary" value="Basketbol">
+                                    Basketbol</option>
+                                <option style="background-color: #fff;" class="text-secondary" value="Voleybol">Voleybol
+                                </option>
+                                <option style="background-color: #fff;" class="text-secondary" value="Tenis">Tenis
+                                </option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3" style="width: 100%;" (click)="filterEvents()">Filtrele</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
